@@ -10,4 +10,4 @@ Tutorial Link: https://www.youtube.com/playlist?list=PLtGOJcWqvbqcpzGeMPJXvw7pom
 * install QtDesigner to open and update the ui.
 * * Link: https://build-system.fman.io/qt-designer-download
 * install DB Browser for SQLite to open the database and update it's structure.
-* *Link: https://sqlitebrowser.org/
+* * Link: https://sqlitebrowser.org/
