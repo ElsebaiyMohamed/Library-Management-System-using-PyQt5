@@ -1,0 +1,13 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>client.png</file>
+    <file>book.png</file>
+    <file>dashboard.jpg</file>
+    <file>report.png</file>
+    <file>Setting.png</file>
+    <file>today2.png</file>
+    <file>today1.jpg</file>
+    <file>today2.jpg</file>
+    <file>history.png</file>
+  </qresource>
+</RCC>

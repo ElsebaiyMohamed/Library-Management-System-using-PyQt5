@@ -1,0 +1,451 @@
+[
+    {
+        "label": "Error",
+        "importPath": "msilib.schema",
+        "description": "msilib.schema",
+        "isExtraImport": true,
+        "detail": "msilib.schema",
+        "documentation": {}
+    },
+    {
+        "label": "sqlite3",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlite3",
+        "description": "sqlite3",
+        "detail": "sqlite3",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "peewee",
+        "description": "peewee",
+        "isExtraImport": true,
+        "detail": "peewee",
+        "documentation": {}
+    },
+    {
+        "label": "QtCore",
+        "importPath": "PyQt5",
+        "description": "PyQt5",
+        "isExtraImport": true,
+        "detail": "PyQt5",
+        "documentation": {}
+    },
+    {
+        "label": "QtCore",
+        "importPath": "PyQt5",
+        "description": "PyQt5",
+        "isExtraImport": true,
+        "detail": "PyQt5",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "PyQt5.QtGui",
+        "description": "PyQt5.QtGui",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtGui",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "PyQt5.QtWidgets",
+        "description": "PyQt5.QtWidgets",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtWidgets",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "PyQt5.QtCore",
+        "description": "PyQt5.QtCore",
+        "isExtraImport": true,
+        "detail": "PyQt5.QtCore",
+        "documentation": {}
+    },
+    {
+        "label": "loadUiType",
+        "importPath": "PyQt5.uic",
+        "description": "PyQt5.uic",
+        "isExtraImport": true,
+        "detail": "PyQt5.uic",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "DBManger",
+        "importPath": "DBHelper",
+        "description": "DBHelper",
+        "isExtraImport": true,
+        "detail": "DBHelper",
+        "documentation": {}
+    },
+    {
+        "label": "DBManger",
+        "kind": 6,
+        "importPath": "PyCode.DBHelper",
+        "description": "PyCode.DBHelper",
+        "peekOfCode": "class DBManger:\n    def __init__(self, db):\n        self.db_name = db\n    def insertStatement(self, table, **col):\n        self.connect()\n        id = 0\n        try:\n            self.cur.execute(f'''\n                             INSERT INTO {table}({\", \".join(col.keys())})\n                             VALUES({\", \".join(col.values())})",
+        "detail": "PyCode.DBHelper",
+        "documentation": {}
+    },
+    {
+        "label": "Category",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Category(Model):\n    name = CharField()\n    parent = IntegerField()\n    class Meta:\n        database = db \nclass Location(Model):\n    location = CharField(unique=True)\n    class Meta:\n        database = db \nclass Publisher(Model):",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Location",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Location(Model):\n    location = CharField(unique=True)\n    class Meta:\n        database = db \nclass Publisher(Model):\n    name = CharField(unique=True)\n    location = ForeignKeyField(Location, backref='location_id', null=True)\n    class Meta:\n        database = db \nclass Author(Model):",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Publisher",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Publisher(Model):\n    name = CharField(unique=True)\n    location = ForeignKeyField(Location, backref='location_id', null=True)\n    class Meta:\n        database = db \nclass Author(Model):\n    name = CharField(unique=True)\n    mail = CharField(null=True)\n    class Meta:\n        database = db ",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Author",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Author(Model):\n    name = CharField(unique=True)\n    mail = CharField(null=True)\n    class Meta:\n        database = db \nBOOK_STATUS = (\n    (1, 'New'),\n    (2, 'Used'),\n    (3, 'Old')\n)",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Book",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Book(Model):\n    title = CharField(unique=True)\n    description = TextField(null=True)\n    category = ForeignKeyField(Category, backref='category')\n    code = CharField(null=True, unique=True)\n    #parts = \n    part_order = IntegerField(null=True)\n    price = DecimalField(null=True)\n    publisher = ForeignKeyField(Publisher, backref='publisher', null=True)\n    author = ForeignKeyField(Author, backref='author', null=True)",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Clients",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Clients(Model):\n    name = CharField()\n    mail = CharField(null=True, unique=True)\n    phone = CharField(null=True)\n    nat_id = IntegerField(unique=True)\n    date = DateTimeField()\n    class Meta:\n        database = db \nclass Employee(Model):\n    nat_id = IntegerField(unique=True)",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Employee(Model):\n    nat_id = IntegerField(unique=True)\n    name = CharField()\n    mail = CharField(null=True, unique=True)\n    phone = CharField(null=True)\n    date = DateTimeField()\n    periority = IntegerField()\n    class Meta:\n        database = db \nclass Branch(Model):",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "Branch",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class Branch(Model):\n    name = CharField()\n    code = CharField(unique=True)\n    location = ForeignKeyField(Location, backref='location_id', null=True)\n    class Meta:\n        database = db \nOPERATION = (\n    (1, 'Borrow'),\n    (2, 'Retrieve')\n)",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "DialyMovement",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class DialyMovement(Model):\n    book = ForeignKeyField(Book, backref='book')\n    client = ForeignKeyField(Clients, backref='client')\n    operation = CharField(choices=OPERATION)\n    branch = ForeignKeyField(Branch, backref='branch')\n    date = DateTimeField()\n    from_date = DateTimeField()\n    to_date = DateTimeField()\n    employee = ForeignKeyField(Employee, backref='employee')\n    class Meta:",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "History",
+        "kind": 6,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "class History(Model):\n    employee = ForeignKeyField(Employee, backref='employee')\n    action = CharField(choices=ACTIONS)\n    table = CharField(choices=TABLES)\n    date = DateTimeField()\n    branch = ForeignKeyField(Branch, backref='branch')\n    class Meta:\n        database = db \ndb.connect()\ndb.create_tables([Category, Location,Publisher, Author, Book, Clients, Employee, Branch, DialyMovement, History])",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "db",
+        "kind": 5,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "db = SqliteDatabase(r\"DB\\library.db\")\nclass Category(Model):\n    name = CharField()\n    parent = IntegerField()\n    class Meta:\n        database = db \nclass Location(Model):\n    location = CharField(unique=True)\n    class Meta:\n        database = db ",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "BOOK_STATUS",
+        "kind": 5,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "BOOK_STATUS = (\n    (1, 'New'),\n    (2, 'Used'),\n    (3, 'Old')\n)\nclass Book(Model):\n    title = CharField(unique=True)\n    description = TextField(null=True)\n    category = ForeignKeyField(Category, backref='category')\n    code = CharField(null=True, unique=True)",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "OPERATION",
+        "kind": 5,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "OPERATION = (\n    (1, 'Borrow'),\n    (2, 'Retrieve')\n)\nclass DialyMovement(Model):\n    book = ForeignKeyField(Book, backref='book')\n    client = ForeignKeyField(Clients, backref='client')\n    operation = CharField(choices=OPERATION)\n    branch = ForeignKeyField(Branch, backref='branch')\n    date = DateTimeField()",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "ACTIONS",
+        "kind": 5,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "ACTIONS = (\n    (1, 'Login'),\n    (2, 'Update'),\n    (3, 'Create'),\n    (4, 'Delete')\n)\nTABLES = (\n    (1, 'Books'),\n    (2, 'Clients'),\n    (3, 'Employee'),",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "TABLES",
+        "kind": 5,
+        "importPath": "PyCode.DB_structure",
+        "description": "PyCode.DB_structure",
+        "peekOfCode": "TABLES = (\n    (1, 'Books'),\n    (2, 'Clients'),\n    (3, 'Employee'),\n    (4, 'Category'),\n    (5, 'Branch'),\n    (6, 'Dialy Movement'),\n    (7, 'Publisher'),\n    (8, 'Author'),\n)",
+        "detail": "PyCode.DB_structure",
+        "documentation": {}
+    },
+    {
+        "label": "qInitResources",
+        "kind": 2,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "def qInitResources():\n    QtCore.qRegisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\ndef qCleanupResources():\n    QtCore.qUnregisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\nqInitResources()",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qCleanupResources",
+        "kind": 2,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "def qCleanupResources():\n    QtCore.qUnregisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\nqInitResources()",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_data",
+        "kind": 5,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "qt_resource_data = b\"\\\n\\x00\\x00\\x0b\\x15\\\n\\x89\\\n\\x50\\x4e\\x47\\x0d\\x0a\\x1a\\x0a\\x00\\x00\\x00\\x0d\\x49\\x48\\x44\\x52\\x00\\\n\\x00\\x00\\x0a\\x00\\x00\\x00\\x09\\x08\\x06\\x00\\x00\\x00\\x0b\\xa6\\xbd\\x13\\\n\\x00\\x00\\x00\\x09\\x70\\x48\\x59\\x73\\x00\\x00\\x0b\\x13\\x00\\x00\\x0b\\x13\\\n\\x01\\x00\\x9a\\x9c\\x18\\x00\\x00\\x0a\\x4d\\x69\\x43\\x43\\x50\\x50\\x68\\x6f\\\n\\x74\\x6f\\x73\\x68\\x6f\\x70\\x20\\x49\\x43\\x43\\x20\\x70\\x72\\x6f\\x66\\x69\\\n\\x6c\\x65\\x00\\x00\\x78\\xda\\x9d\\x53\\x77\\x58\\x93\\xf7\\x16\\x3e\\xdf\\xf7\\\n\\x65\\x0f\\x56\\x42\\xd8\\xf0\\xb1\\x97\\x6c\\x81\\x00\\x22\\x23\\xac\\x08\\xc8\\",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_name",
+        "kind": 5,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "qt_resource_name = b\"\\\n\\x00\\x11\\\n\\x0b\\x14\\x5d\\x13\\\n\\x00\\x50\\\n\\x00\\x79\\x00\\x51\\x00\\x74\\x00\\x35\\x00\\x5f\\x00\\x73\\x00\\x74\\x00\\x79\\x00\\x6c\\x00\\x65\\x00\\x73\\x00\\x68\\x00\\x65\\x00\\x65\\x00\\x74\\x00\\x73\\\n\\\n\\x00\\x09\\\n\\x09\\x5f\\x97\\x13\\\n\\x00\\x71\\\n\\x00\\x73\\x00\\x73\\x00\\x5f\\x00\\x69\\x00\\x63\\x00\\x6f\\x00\\x6e\\x00\\x73\\",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_struct_v1",
+        "kind": 5,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "qt_resource_struct_v1 = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x28\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x05\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x03\\\n\\x00\\x00\\x01\\xec\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x04\\\n\\x00\\x00\\x01\\xfe\\x00\\x01\\x00\\x00\\x00\\x01\\x00\\x00\\x2e\\xff\\\n\\x00\\x00\\x00\\x40\\x00\\x02\\x00\\x00\\x00\\x09\\x00\\x00\\x00\\x06\\\n\\x00\\x00\\x01\\x56\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x21\\x04\\\n\\x00\\x00\\x01\\xbc\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x23\\xe5\\\n\\x00\\x00\\x00\\xe0\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x0f\\xb8\\",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_struct_v2",
+        "kind": 5,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "qt_resource_struct_v2 = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x28\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x05\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x03\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x01\\xec\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x04\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x01\\xfe\\x00\\x01\\x00\\x00\\x00\\x01\\x00\\x00\\x2e\\xff\\",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_version",
+        "kind": 5,
+        "importPath": "PyCode.icons_rc",
+        "description": "PyCode.icons_rc",
+        "peekOfCode": "qt_version = [int(v) for v in QtCore.qVersion().split('.')]\nif qt_version < [5, 8, 0]:\n    rcc_version = 1\n    qt_resource_struct = qt_resource_struct_v1\nelse:\n    rcc_version = 2\n    qt_resource_struct = qt_resource_struct_v2\ndef qInitResources():\n    QtCore.qRegisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\ndef qCleanupResources():",
+        "detail": "PyCode.icons_rc",
+        "documentation": {}
+    },
+    {
+        "label": "Main",
+        "kind": 6,
+        "importPath": "PyCode.Library",
+        "description": "PyCode.Library",
+        "peekOfCode": "class Main(QMainWindow, MainUi):\n    def __init__(self, parent=None) -> None:\n        super(Main, self).__init__(parent)\n        QMainWindow.__init__(self)\n        self.emp = None\n        self.setupUi(self)\n        self.UI_changes()\n        self.handle_login()\n        self.handle_main_system_buttons()\n        self.Handle_today_tab()",
+        "detail": "PyCode.Library",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "PyCode.Library",
+        "description": "PyCode.Library",
+        "peekOfCode": "def main():\n    app = QApplication(sys.argv)\n    window = Main()\n    window.show()\n    app.exec_()\nif __name__ == '__main__':\n    main()",
+        "detail": "PyCode.Library",
+        "documentation": {}
+    },
+    {
+        "label": "DBM",
+        "kind": 5,
+        "importPath": "PyCode.Library",
+        "description": "PyCode.Library",
+        "peekOfCode": "DBM = DBManger(r'DB\\library.db')\nmy_date = datetime(2000, 1, 1)\nclass Main(QMainWindow, MainUi):\n    def __init__(self, parent=None) -> None:\n        super(Main, self).__init__(parent)\n        QMainWindow.__init__(self)\n        self.emp = None\n        self.setupUi(self)\n        self.UI_changes()\n        self.handle_login()",
+        "detail": "PyCode.Library",
+        "documentation": {}
+    },
+    {
+        "label": "my_date",
+        "kind": 5,
+        "importPath": "PyCode.Library",
+        "description": "PyCode.Library",
+        "peekOfCode": "my_date = datetime(2000, 1, 1)\nclass Main(QMainWindow, MainUi):\n    def __init__(self, parent=None) -> None:\n        super(Main, self).__init__(parent)\n        QMainWindow.__init__(self)\n        self.emp = None\n        self.setupUi(self)\n        self.UI_changes()\n        self.handle_login()\n        self.handle_main_system_buttons()",
+        "detail": "PyCode.Library",
+        "documentation": {}
+    },
+    {
+        "label": "qInitResources",
+        "kind": 2,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "def qInitResources():\n    QtCore.qRegisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\ndef qCleanupResources():\n    QtCore.qUnregisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\nqInitResources()",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qCleanupResources",
+        "kind": 2,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "def qCleanupResources():\n    QtCore.qUnregisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\nqInitResources()",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_data",
+        "kind": 5,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "qt_resource_data = b\"\\\n\\x00\\x00\\x06\\x54\\\n\\x00\\\n\\x00\\x1f\\xc2\\x78\\x9c\\xcd\\x59\\x6d\\x6f\\xdb\\x36\\x10\\xfe\\xec\\xfc\\x0a\\\n\\xa2\\xc6\\x80\\x1a\\xb0\\x52\\xd9\\xb1\\x93\\x98\\x41\\x3f\\x34\\xee\\x2b\\xd0\\\n\\x00\\xc9\\x1a\\x6c\\x1f\\x8a\\xc1\\xa0\\x25\\x5a\\x16\\x2a\\x8b\\x2a\\x45\\x2f\\\n\\xce\\x82\\xfd\\xf7\\xf1\\x45\\x94\\x48\\x89\\xb2\\x9d\\x25\\x6e\\x1b\\xb7\\xb6\\\n\\x44\\x8a\\x77\\xcf\\x3d\\x77\\x3c\\x1e\\xa9\\x9b\\x3f\\xe3\\x30\\xc2\\xac\\xbb\\\n\\xa0\\xab\\xcf\\x24\\x8a\\xd3\\xfe\\x4d\\xd5\\x70\\x4d\\xb2\\x75\\x66\\x36\\x7c\\\n\\x24\\x39\\xfb\\x94\\x2e\\x88\\xd9\\xc6\\x47\\x91\\x35\\x33\\x5b\\xa6\\x24\\x5d\\",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_name",
+        "kind": 5,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "qt_resource_name = b\"\\\n\\x00\\x09\\\n\\x09\\x5f\\x97\\x13\\\n\\x00\\x71\\\n\\x00\\x73\\x00\\x73\\x00\\x5f\\x00\\x69\\x00\\x63\\x00\\x6f\\x00\\x6e\\x00\\x73\\\n\\x00\\x11\\\n\\x0b\\x14\\x5d\\x13\\\n\\x00\\x50\\\n\\x00\\x79\\x00\\x51\\x00\\x74\\x00\\x35\\x00\\x5f\\x00\\x73\\x00\\x74\\x00\\x79\\x00\\x6c\\x00\\x65\\x00\\x73\\x00\\x68\\x00\\x65\\x00\\x65\\x00\\x74\\x00\\x73\\\n\\",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_struct_v1",
+        "kind": 5,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "qt_resource_struct_v1 = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x05\\\n\\x00\\x00\\x00\\x18\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x03\\\n\\x00\\x00\\x00\\x40\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x04\\\n\\x00\\x00\\x00\\x52\\x00\\x01\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x74\\x00\\x02\\x00\\x00\\x00\\x09\\x00\\x00\\x00\\x06\\\n\\x00\\x00\\x00\\xb4\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x09\\x0f\\\n\\x00\\x00\\x01\\x40\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x1a\\x75\\\n\\x00\\x00\\x01\\xfa\\x00\\x00\\x00\\x00\\x00\\x01\\x00\\x00\\x31\\xdb\\",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_resource_struct_v2",
+        "kind": 5,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "qt_resource_struct_v2 = b\"\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x00\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x05\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x18\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x03\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x40\\x00\\x02\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x04\\\n\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\x00\\\n\\x00\\x00\\x00\\x52\\x00\\x01\\x00\\x00\\x00\\x01\\x00\\x00\\x00\\x00\\",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "qt_version",
+        "kind": 5,
+        "importPath": "PyCode.style_blue_rc",
+        "description": "PyCode.style_blue_rc",
+        "peekOfCode": "qt_version = [int(v) for v in QtCore.qVersion().split('.')]\nif qt_version < [5, 8, 0]:\n    rcc_version = 1\n    qt_resource_struct = qt_resource_struct_v1\nelse:\n    rcc_version = 2\n    qt_resource_struct = qt_resource_struct_v2\ndef qInitResources():\n    QtCore.qRegisterResourceData(rcc_version, qt_resource_struct, qt_resource_name, qt_resource_data)\ndef qCleanupResources():",
+        "detail": "PyCode.style_blue_rc",
+        "documentation": {}
+    },
+    {
+        "label": "my_date",
+        "kind": 5,
+        "importPath": "PyCode.test",
+        "description": "PyCode.test",
+        "peekOfCode": "my_date = datetime(1, 1, 1)\nprint(my_date.now())'''\nargue = ['True', 'True', 'True', 'nm']\nddddd = {\n    0: (\" branch_id = \"),\n    1: (\" employee_id = \"),\n    2: (\" table = \"),\n    3: (\" action = \")\n}\nemp = 'True'",
+        "detail": "PyCode.test",
+        "documentation": {}
+    },
+    {
+        "label": "argue",
+        "kind": 5,
+        "importPath": "PyCode.test",
+        "description": "PyCode.test",
+        "peekOfCode": "argue = ['True', 'True', 'True', 'nm']\nddddd = {\n    0: (\" branch_id = \"),\n    1: (\" employee_id = \"),\n    2: (\" table = \"),\n    3: (\" action = \")\n}\nemp = 'True'\nif not emp == \"True\":\n    emp, _ = map(str.strip, emp.split('-'))",
+        "detail": "PyCode.test",
+        "documentation": {}
+    },
+    {
+        "label": "ddddd",
+        "kind": 5,
+        "importPath": "PyCode.test",
+        "description": "PyCode.test",
+        "peekOfCode": "ddddd = {\n    0: (\" branch_id = \"),\n    1: (\" employee_id = \"),\n    2: (\" table = \"),\n    3: (\" action = \")\n}\nemp = 'True'\nif not emp == \"True\":\n    emp, _ = map(str.strip, emp.split('-'))\n    argue[1] = emp",
+        "detail": "PyCode.test",
+        "documentation": {}
+    },
+    {
+        "label": "emp",
+        "kind": 5,
+        "importPath": "PyCode.test",
+        "description": "PyCode.test",
+        "peekOfCode": "emp = 'True'\nif not emp == \"True\":\n    emp, _ = map(str.strip, emp.split('-'))\n    argue[1] = emp\n    emp_condition = f\"id = '{emp}'\"\nfor tt, arr in zip(ddddd.items(),argue):\n    i, val = tt\n    if not arr == \"True\":\n        argue[i] = f\"{val} '{arr}'\"\n    else:",
+        "detail": "PyCode.test",
+        "documentation": {}
+    },
+    {
+        "label": "search_condition",
+        "kind": 5,
+        "importPath": "PyCode.test",
+        "description": "PyCode.test",
+        "peekOfCode": "search_condition = \" and \".join(argue)\nprint(\"====\",search_condition)",
+        "detail": "PyCode.test",
+        "documentation": {}
+    }
+]
